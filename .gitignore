@@ -1,0 +1,10 @@
+docs/
+site/
+data/
+*egg-info/
+
+.frostbook-manifest.json
+
+*__pycache__
+*.DS_Store
+*.ipynb_checkpoints

@@ -1,0 +1,39 @@
+site_name: FrostBook
+docs_dir: docs
+
+not_in_nav: |
+  /help.md
+
+theme:
+  name: material
+  custom_dir: src/frostbook/resources/overrides  
+  font: 
+    text: DM Sans
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    scheme: default
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - tags:
+      tags_hierarchy: true
+      listings_toc: false
+
+extra_css:
+  - extra.css
+
+extra_javascript:
+  - extra.js

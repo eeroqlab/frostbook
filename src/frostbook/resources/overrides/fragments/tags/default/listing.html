@@ -1,0 +1,79 @@
+{% macro render(listing) %}
+
+  {% set parts = listing.tag.name.split("/") %}
+  {% set category = parts[0] | lower %}
+  {% set label = parts[-1] %}
+
+  <details
+    class="frost-tag-group frost-tag--{{ category }}"
+    data-frost-tag="{{ listing.tag.name }}">
+
+    <summary class="frost-tag-summary">
+
+      <span class="frost-tag-name">
+        {{ label }}
+      </span>
+
+      {% if listing.mappings %}
+        <span class="frost-tag-count">
+          {{ listing.mappings | length }}
+          experiment{% if listing.mappings | length != 1 %}s{% endif %}
+        </span>
+      {% endif %}
+
+    </summary>
+
+
+    <!--
+      Keep Material's generated tag anchor in the page.
+
+      We hide it visually with CSS, but Material's tag links can
+      still point to it.
+    -->
+    <div class="frost-tag-anchor">
+      {{ listing.content }}
+    </div>
+
+
+    {% if listing.mappings %}
+      <div class="frost-tag-experiments">
+
+        {% for mapping in listing.mappings %}
+
+          <a
+            class="frost-tag-experiment"
+            href="{{ mapping.item.url | url }}"
+          >
+
+            <span class="frost-exp-id">
+              {{ mapping.item.title }}
+            </span>
+
+            {% if mapping.item.meta and mapping.item.meta.date %}
+              <span class="frost-exp-dot">●</span>
+
+              <span class="frost-exp-date">
+                {{ mapping.item.meta.date }}
+              </span>
+            {% endif %}
+
+          </a>
+
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+
+    {% for child in listing %}
+      <div class="frost-tag-child">
+        {{ render(child) }}
+      </div>
+    {% endfor %}
+
+  </details>
+
+{% endmacro %}
+
+
+{{ render(listing) }}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "frostbook"
+version = "0.1.0"
+description = "A local browser-based experiment logbook generated from Orchid experiment data"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "PyYAML",
+    "mkdocs",
+    "mkdocs-material",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+]
+
+
+[project.scripts]
+frostbook = "frostbook.generate_logbook:main"
+frostbook-editor = "frostbook.editor:main"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/frostbook"]

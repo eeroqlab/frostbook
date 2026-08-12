@@ -1,0 +1,1046 @@
+/* =========================================================
+   FrostBook theme
+   ========================================================= */
+
+/* Chunky display font for FrostBook/page titles */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+
+/* ---------------------------------------------------------
+   COLOR SYSTEM
+   --------------------------------------------------------- */
+
+:root {
+  /* FrostBook blue */
+  --frost-blue: #4056c6;
+  --frost-blue-dark: #293a98;
+  --frost-blue-soft: #e8ebff;
+
+  /* Warm notebook colors */
+  --frost-bg: #f8f3e9;
+  --frost-surface: #fffaf2;
+  --frost-surface-hover: #f3ecdf;
+  --frost-border: #ded5c7;
+
+  /* Text */
+  --frost-text: #26231f;
+  --frost-muted: #746e66;
+
+  /* Override Material colors */
+  --md-primary-fg-color: var(--frost-blue);
+  --md-primary-fg-color--light: #6072d6;
+  --md-primary-fg-color--dark: var(--frost-blue-dark);
+
+  --md-accent-fg-color: var(--frost-blue);
+  --md-accent-fg-color--transparent: rgba(64, 86, 198, 0.10);
+
+  --md-default-bg-color: var(--frost-bg);
+  --md-default-fg-color: var(--frost-text);
+}
+
+
+/* ---------------------------------------------------------
+   GENERAL PAGE
+   --------------------------------------------------------- */
+
+body {
+  background: var(--frost-bg);
+}
+
+.md-grid {
+  max-width: 1440px;
+}
+
+/* Main content */
+.md-content {
+  color: var(--frost-text);
+}
+
+.md-content__inner {
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+
+/* ---------------------------------------------------------
+   BIG TITLES — Bastion-ish
+   --------------------------------------------------------- */
+
+.md-content h1 {
+  font-family: "Archivo Black", "DM Sans", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+
+  color: #202020;
+
+  margin-bottom: 1.4rem;
+}
+
+.md-content h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--frost-text);
+
+  margin-top: 2.2rem;
+}
+
+.md-content h3 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER / TOP BAR
+   --------------------------------------------------------- */
+
+.md-header {
+  background-color: var(--frost-blue);
+  box-shadow: none;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* FrostBook name in top header */
+.md-header__title,
+.md-header__topic {
+  font-family: "Archivo Black", "DM Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.035em;
+}
+
+/* FrostBook header title acts as Home */
+.md-header__title {
+  cursor: pointer;
+}
+
+/* Search box */
+.md-search__form {
+  border-radius: 999px;
+
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.md-search__input {
+  border-radius: 999px;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT NAVIGATION
+   --------------------------------------------------------- */
+
+/* Hide duplicated Material brand title */
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
+.md-nav__link {
+  border-radius: 7px;
+
+  padding: 0.35rem 0.45rem;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.md-nav__link:hover {
+  background-color: rgba(64, 86, 198, 0.08);
+  color: var(--frost-blue);
+}
+
+/* Currently active page */
+.md-nav__link--active {
+  color: var(--frost-blue);
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   LINKS
+   --------------------------------------------------------- */
+
+.md-typeset a {
+  color: var(--frost-blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.md-typeset a:hover {
+  color: var(--frost-blue-dark);
+}
+
+
+/* ---------------------------------------------------------
+   TABLES — closer to Awesome Python
+   --------------------------------------------------------- */
+
+.md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset table:not([class]) {
+  width: 100%;
+
+  background: transparent;
+
+  border: none;
+  border-collapse: collapse;
+
+  box-shadow: none;
+}
+
+/* Header */
+.md-typeset table:not([class]) th {
+  background: transparent;
+
+  color: var(--frost-text);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-align: left;
+
+  border-bottom: 1.5px solid var(--frost-border);
+
+  padding: 0.8rem 0.9rem;
+}
+
+/* Rows */
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid var(--frost-border);
+
+  padding: 0.8rem 0.9rem;
+
+  vertical-align: middle;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border-left: none;
+  border-right: none;
+}
+
+.md-typeset table:not([class]) tbody tr {
+  transition: background-color 0.12s ease;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--frost-surface-hover);
+}
+
+
+/* ---------------------------------------------------------
+   COLLAPSIBLE METADATA / PROCEDURE BLOCKS
+   --------------------------------------------------------- */
+
+.md-typeset details {
+  overflow: hidden;
+
+  border: 1px solid var(--frost-border);
+  border-radius: 10px;
+
+  background: var(--frost-surface);
+
+  box-shadow: none;
+}
+
+.md-typeset details summary {
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   CODE
+   --------------------------------------------------------- */
+
+.md-typeset code {
+  border-radius: 5px;
+}
+
+
+/* ---------------------------------------------------------
+   DIVIDERS
+   --------------------------------------------------------- */
+
+.md-typeset hr {
+  border-color: var(--frost-border);
+
+  margin: 2.2rem 0;
+}
+
+
+/* ---------------------------------------------------------
+   MUTED / SECONDARY TEXT
+   --------------------------------------------------------- */
+
+.md-typeset em {
+  color: var(--frost-muted);
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT TABLE OF CONTENTS
+   --------------------------------------------------------- */
+
+.md-nav--secondary .md-nav__title {
+  font-weight: 700;
+}
+
+.md-nav--secondary .md-nav__link {
+  color: var(--frost-muted);
+}
+
+.md-nav--secondary .md-nav__link:hover,
+.md-nav--secondary .md-nav__link--active {
+  color: var(--frost-blue);
+}
+
+
+/* ---------------------------------------------------------
+   SCROLLBAR
+   --------------------------------------------------------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c8c1b7 transparent;
+}
+
+
+/* =========================================================
+   FROSTBOOK TAG COLOR SYSTEM
+   ========================================================= */
+
+:root {
+  --tag-cooldown: #BACADD;   /* Cool Steel */
+  --tag-sample: #A4BAA1;     /* Muted Teal */
+  --tag-procedure: #FFFAD6;  /* Lemon Chiffon */
+  --tag-topic: #B19B8E;      /* Dusty Taupe */
+  --tag-fridge: #C5E0DF;     /* Light Cyan */
+  --tag-star: #F3DDA4;       /* Soft Gold */
+
+  --tag-other: #E7E3DC;
+}
+
+
+/* Category → palette mapping */
+
+.frost-tag--cooldown {
+  --frost-tag-color: var(--tag-cooldown);
+  --frost-tag-ink: #26343a;
+}
+
+.frost-tag--sample {
+  --frost-tag-color: var(--tag-sample);
+  --frost-tag-ink: #263229;
+}
+
+.frost-tag--procedure {
+  --frost-tag-color: var(--tag-procedure);
+  --frost-tag-ink: #403d25;
+}
+
+.frost-tag--topic {
+  --frost-tag-color: var(--tag-topic);
+  --frost-tag-ink: #372d29;
+}
+
+.frost-tag--fridge {
+  --frost-tag-color: var(--tag-fridge);
+  --frost-tag-ink: #243536;
+}
+
+.frost-tag--star {
+  --frost-tag-color: var(--tag-star);
+  --frost-tag-ink: #55451f;
+}
+
+.frost-tag--other {
+  --frost-tag-color: var(--tag-other);
+  --frost-tag-ink: #333;
+}
+
+
+/* =========================================================
+   TAGS ON INDIVIDUAL EXPERIMENT PAGES
+   ========================================================= */
+
+.frost-page-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+
+  margin: 0.8rem 0 1.5rem;
+}
+
+.md-tag.frost-page-tag {
+  padding: 0.3rem 0.7rem;
+
+  border: 1px solid
+    color-mix(in srgb, var(--frost-tag-color) 80%, #777);
+
+  border-radius: 999px;
+
+  background: var(--frost-tag-color);
+
+  color: var(--frost-tag-ink);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.md-tag.frost-page-tag:hover {
+  color: var(--frost-tag-ink);
+
+  transform: translateY(-1px);
+
+  filter: brightness(0.97);
+}
+
+
+/* =========================================================
+   COLLAPSIBLE TAG PAGE
+   ========================================================= */
+
+.frost-tag-group {
+  margin: 0.6rem 0;
+
+  border: 1px solid var(--frost-border);
+  border-radius: 10px;
+
+  background: transparent;
+
+  overflow: hidden;
+}
+
+
+/* Main category row */
+.frost-tag-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 0.85rem 1rem;
+
+  cursor: pointer;
+
+  background:
+    color-mix(in srgb, var(--frost-tag-color) 72%, white);
+
+  color: var(--frost-tag-ink);
+
+  font-weight: 750;
+
+  transition:
+    filter 0.15s ease;
+}
+
+.frost-tag-summary:hover {
+  filter: brightness(0.97);
+}
+
+
+/* Nested child tags use same category color,
+   just a little lighter */
+.frost-tag-child .frost-tag-summary {
+  background:
+    color-mix(in srgb, var(--frost-tag-color) 48%, white);
+}
+
+
+/* Leaf count */
+.frost-tag-count {
+  padding: 0.2rem 0.55rem;
+
+  border-radius: 999px;
+
+  background:
+    color-mix(in srgb, var(--frost-tag-color) 60%, white);
+
+  color: var(--frost-tag-ink);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* Child indentation */
+.frost-tag-child {
+  margin: 0.5rem 0.75rem 0.75rem;
+}
+
+
+/* List of experiments inside one tag */
+.frost-tag-experiments {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.45rem 1rem 0.85rem;
+
+  border-top: 1px solid var(--frost-border);
+}
+
+
+/* 0001 ● 2026-08-04 */
+.frost-tag-experiment {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.45rem 0.55rem;
+
+  border-radius: 6px;
+
+  text-decoration: none !important;
+}
+
+.frost-tag-experiment:hover {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+
+.frost-exp-id {
+  color: var(--frost-blue);
+
+  font-weight: 700;
+}
+
+
+.frost-exp-dot {
+  color: #aaa39a;
+
+  font-size: 0.45rem;
+}
+
+
+.frost-exp-date {
+  color: #8d877f;
+
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TAGS INSIDE HOMEPAGE RECENT TABLE
+   ========================================================= */
+
+.frost-table-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  gap: 0.3rem;
+
+  margin-top: 0.4rem;
+}
+
+
+.frost-table-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.17rem 0.48rem;
+
+  border-radius: 999px;
+
+  background: var(--frost-tag-color);
+
+  color: var(--frost-tag-ink) !important;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.frost-table-tag:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.96);
+}
+
+/* =========================================================
+   TAG PAGE FIXES
+   ========================================================= */
+
+
+/* Remove Material's default admonition/details pencil icon.
+   This removes ONLY the icon on the left.
+   The expand arrow on the right stays. */
+.md-typeset details.frost-tag-group
+> summary.frost-tag-summary::before {
+  display: none !important;
+  content: none !important;
+
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+
+  background: none !important;
+}
+
+.md-typeset details.frost-tag-group
+> summary.frost-tag-summary {
+  background:
+    color-mix(
+      in srgb,
+      var(--frost-tag-color) 72%,
+      white
+    ) !important;
+
+  color: var(--frost-tag-ink) !important;
+
+  padding-left: 1rem !important;
+}
+
+.md-typeset .frost-tag-child
+details.frost-tag-group
+> summary.frost-tag-summary {
+  background:
+    color-mix(
+      in srgb,
+      var(--frost-tag-color) 48%,
+      white
+    ) !important;
+}
+
+
+/* Hide Material's original tag heading visually,
+   while keeping its anchor alive for links. */
+.frost-tag-anchor {
+  position: absolute !important;
+
+  width: 1px !important;
+  height: 1px !important;
+
+  overflow: hidden !important;
+
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+
+  white-space: nowrap !important;
+}
+
+/* =========================================================
+   REMOVE ICONS FROM EXPERIMENT COLLAPSIBLES
+   ========================================================= */
+
+/* Remove Material's note/pencil icon from Metadata,
+   Procedure, and Raw YAML dropdowns */
+.md-typeset details.note > summary::before {
+  display: none !important;
+  content: none !important;
+
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+
+  background: none !important;
+}
+
+/* Remove the empty space Material reserved for that icon */
+.md-typeset details.note > summary {
+  padding-left: 1rem !important;
+}
+
+/* =========================================================
+   FROSTBOOK IRIDESCENT LOGO
+   ========================================================= */
+
+.frostbook-logo {
+  font-family: "Archivo Black", "DM Sans", sans-serif;
+
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+
+  /* Metallic / iridescent blue */
+  background:
+    linear-gradient(
+      110deg,
+      #24358f 0%,
+      #4056c6 15%,
+      #7e9cff 28%,
+      #b6ccf4 38%,
+      #5473e8 42%,
+      #9ec5ff 55%,
+      #3449b7 72%,
+      #a2b9e3 80%,
+      #4056c6 85%
+    );
+
+  background-size: 250% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(
+      0 4px 4px rgba(40, 55, 140, 0.20)
+    );
+
+  animation:
+    frostbook-iridescence
+    15s ease-in-out infinite;
+}
+
+
+@keyframes frostbook-iridescence {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Respect users who disable animations */
+@media (prefers-reduced-motion: reduce) {
+  .frostbook-logo {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+/* =========================================================
+   FROSTBOOK HEADER HELP
+   ========================================================= */
+
+.frost-help-link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.35rem;
+
+  margin: 0 0.5rem;
+
+  padding: 0.35rem 0.65rem;
+
+  border-radius: 999px;
+
+  color: white !important;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.frost-help-link::before {
+  content: "?";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.15rem;
+  height: 1.15rem;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.65);
+
+  border-radius: 50%;
+
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+
+.frost-help-link:hover {
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  color: white !important;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   STAR TAG PAGE SPECIAL CASES
+   ========================================================= */
+
+/* Star is a direct leaf tag, but we don't want its
+   experiment-count pill shown in the main category row. */
+details.frost-tag-group[data-frost-tag="star"]
+> summary.frost-tag-summary
+.frost-tag-count {
+  display: none !important;
+}
+
+/* =========================================================
+   FROSTBOOK BROWSER EDITOR
+   ========================================================= */
+
+.frost-editor-control {
+  margin:
+    0.8rem 0
+    1.2rem;
+}
+
+
+.frost-editor-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.55rem;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
+
+.frost-editor-button {
+  appearance: none;
+
+  padding:
+    0.42rem
+    0.8rem;
+
+  border:
+    1px solid
+    var(--frost-border);
+
+  border-radius:
+    8px;
+
+  background:
+    var(--frost-surface);
+
+  color:
+    var(--frost-blue);
+
+  font-family:
+    inherit;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.frost-editor-button:hover:not(
+  :disabled
+) {
+  background:
+    var(--frost-blue-soft);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--frost-blue) 45%,
+      var(--frost-border)
+    );
+
+  transform:
+    translateY(-1px);
+}
+
+
+.frost-editor-button:disabled {
+  opacity:
+    0.58;
+
+  cursor:
+    not-allowed;
+
+  transform:
+    none;
+}
+
+
+.frost-editor-button--primary {
+  background:
+    var(--frost-blue);
+
+  border-color:
+    var(--frost-blue);
+
+  color:
+    white;
+}
+
+
+.frost-editor-button--primary:hover:not(
+  :disabled
+) {
+  background:
+    var(--frost-blue-dark);
+
+  border-color:
+    var(--frost-blue-dark);
+}
+
+
+/* ---------------------------------------------------------
+   STATUS
+   --------------------------------------------------------- */
+
+.frost-editor-status {
+  color:
+    var(--frost-muted);
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    600;
+}
+
+
+.frost-editor-status--error {
+  color:
+    #a33b3b;
+}
+
+
+/* ---------------------------------------------------------
+   NOTES TEXT EDITOR
+   --------------------------------------------------------- */
+
+.frost-notes-editor {
+  margin-top:
+    0.75rem;
+}
+
+
+.frost-notes-editor[hidden] {
+  display:
+    none !important;
+}
+
+
+.frost-notes-textarea {
+  display:
+    block;
+
+  width:
+    100%;
+
+  min-height:
+    230px;
+
+  margin-bottom:
+    0.7rem;
+
+  padding:
+    0.85rem
+    0.95rem;
+
+  resize:
+    vertical;
+
+  border:
+    1px solid
+    var(--frost-border);
+
+  border-radius:
+    10px;
+
+  outline:
+    none;
+
+  background:
+    var(--frost-surface);
+
+  color:
+    var(--frost-text);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size:
+    0.75rem;
+
+  line-height:
+    1.6;
+}
+
+
+.frost-notes-textarea:focus {
+  border-color:
+    color-mix(
+      in srgb,
+      var(--frost-blue) 65%,
+      var(--frost-border)
+    );
+
+  box-shadow:
+    0 0 0 3px
+    rgba(64, 86, 198, 0.08);
+}
+
+/* =========================================================
+   FROSTBOOK DELETE IMAGE BUTTON
+   ========================================================= */
+
+.frost-editor-image-delete {
+  margin-top: -0.35rem;
+  margin-bottom: 1.4rem;
+}
+
+
+.frost-editor-button--danger {
+  color: #9b3d3d;
+
+  border-color:
+    rgba(155, 61, 61, 0.28);
+
+  background:
+    rgba(155, 61, 61, 0.045);
+}
+
+
+.frost-editor-button--danger:hover:not(
+  :disabled
+) {
+  color: #7f2f2f;
+
+  border-color:
+    rgba(155, 61, 61, 0.48);
+
+  background:
+    rgba(155, 61, 61, 0.10);
+}

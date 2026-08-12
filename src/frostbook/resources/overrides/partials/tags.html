@@ -1,0 +1,28 @@
+{% if tags %}
+<nav class="md-tags frost-page-tags">
+
+  {% for tag in tags %}
+
+    {% set parts = tag.name.split("/") %}
+    {% set category = parts[0] | lower %}
+    {% set label = parts[-1] %}
+
+    {% if tag.url %}
+      <a
+        href="{{ tag.url | url }}"
+        class="md-tag frost-page-tag frost-tag--{{ category }}"
+      >
+        {{ label }}
+      </a>
+    {% else %}
+      <span
+        class="md-tag frost-page-tag frost-tag--{{ category }}"
+      >
+        {{ label }}
+      </span>
+    {% endif %}
+
+  {% endfor %}
+
+</nav>
+{% endif %}
