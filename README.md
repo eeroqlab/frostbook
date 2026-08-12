@@ -24,7 +24,7 @@ Each user can point FrostBook at their own local copy or mount of the same data 
 
 ## Setup
 
-From the FrostBook repository root
+From the FrostBook repository root:
 
 ```bash
 python3 -m pip install -e .
