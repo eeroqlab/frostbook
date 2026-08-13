@@ -930,7 +930,7 @@ function initFrostImageUploader(
     "frost-editor-button";
 
   uploadButton.textContent =
-    "+ Add Plot / Image";
+    "+ Add Plot / Image / PDF";
 
 
   const input =
@@ -942,8 +942,8 @@ function initFrostImageUploader(
     "file";
 
   input.accept =
-    ".png,.jpg,.jpeg," +
-    "image/png,image/jpeg";
+    ".png,.jpg,.jpeg,.pdf," +
+    "image/png,image/jpeg,application/pdf";
 
   input.hidden =
     true;
@@ -1125,7 +1125,7 @@ function initFrostImageDelete(
     "frost-editor-button--danger";
 
   deleteButton.textContent =
-    "Delete image";
+    "Delete file";
 
 
   const status =
@@ -1183,7 +1183,7 @@ function initFrostImageDelete(
       const confirmed =
         window.confirm(
           `Delete "${filename}"?\n\n` +
-          "This removes the image from the " +
+          "This removes the file from the " +
           "experiment's source data."
         );
 

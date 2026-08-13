@@ -1044,3 +1044,38 @@ details.frost-tag-group[data-frost-tag="star"]
   background:
     rgba(155, 61, 61, 0.10);
 }
+
+/* =========================================================
+   EMBEDDED PDF PLOTS
+   ========================================================= */
+
+.frost-pdf-plot {
+  width: 100%;
+
+  margin:
+    1rem 0
+    0.7rem;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    var(--frost-border);
+
+  border-radius:
+    10px;
+
+  background:
+    var(--frost-surface);
+}
+
+
+.frost-pdf-plot object {
+  display: block;
+
+  width: 100%;
+
+  min-height: 700px;
+
+  border: none;
+}

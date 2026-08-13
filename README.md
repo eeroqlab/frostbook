@@ -13,7 +13,7 @@ data/
             ├── procedure.yaml
             ├── notes.md
             ├── summary.txt
-            └── <images>
+            └── <plots / images / PDFs>
 ```
 
 `data/` is expected to live on shared or synced storage, such as a NAS.
@@ -75,7 +75,7 @@ The editor API runs locally on port `8765`; continue browsing FrostBook through 
 When the editor is running, experiment pages can:
 
 * edit and save `notes.md`
-* upload PNG/JPG/JPEG plots or images
+* upload PNG/JPG/JPEG/PDF files
 * delete existing experiment images
 * automatically rerender the affected experiment after a change
 
@@ -118,7 +118,7 @@ Browser edits automatically trigger an incremental update for the edited experim
 * `procedure.yaml` is summarized into useful fields and sweep information, with the raw YAML also available.
 * `summary.txt` is optional. When present, it appears as a collapsible **Summary** section.
 * `notes.md` is displayed directly on the experiment page and can optionally be edited through the browser.
-* Supported plots/images are discovered automatically and copied into the generated `docs/assets/` tree.
+* Supported plots/images/PDFs are discovered automatically and copied into the generated `docs/assets/` tree.
 * Images can optionally be uploaded or deleted through the browser editor.
 * The homepage shows recent experiments and date/fridge sessions.
 * Tags appear throughout the notebook and have a dedicated Tags page.
@@ -141,7 +141,7 @@ To prevent notes from being edited:
 notes
 ```
 
-To prevent image uploads and deletions:
+To prevent image/PDF uploads and deletions:
 
 ```text
 images

@@ -439,9 +439,51 @@ def build_experiment_page(
 
     if image_rels:
         for name, rel in image_rels:
-            page.append(
-                f"\n![{name}]({rel})\n"
+
+            suffix = (
+                Path(name)
+                .suffix
+                .lower()
             )
+
+            if suffix == ".pdf":
+
+                pdf_path = (
+                    Path("assets")
+                    / date_label
+                    / fridge
+                    / exp_id
+                    / name
+                )
+
+                pdf_src = (
+                    "/"
+                    + quote(
+                        pdf_path.as_posix(),
+                        safe="/",
+                    )
+                )
+
+                page.append(
+                    f'\n<div class="frost-pdf-plot">\n'
+                    f'  <object '
+                    f'data="{pdf_src}" '
+                    f'type="application/pdf" '
+                    f'width="100%" '
+                    f'height="700">\n'
+                    f'    <p>'
+                    f'<a href="{pdf_src}" target="_blank">'
+                    f'Open {html.escape(name)}'
+                    f'</a>'
+                    f'</p>\n'
+                    f'  </object>\n'
+                    f'</div>\n'
+                )
+
+            else:
+                page.append(
+                    f"\n![{name}]({rel})\n"
+                )
 
             page.append(
                 "\n"
@@ -456,7 +498,7 @@ def build_experiment_page(
 
     else:
         page.append(
-            "\n_No images found in this "
+            "\n_No files found in this "
             "experiment folder._\n"
         )
 
@@ -2022,7 +2064,7 @@ def main():
     docs_dir = Path(args.docs_dir)
 
     manifest_path = (
-        Path(__file__).parent
+        docs_dir.parent
         / MANIFEST_FILENAME
     )
 

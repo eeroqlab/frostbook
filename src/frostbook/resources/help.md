@@ -75,12 +75,12 @@ data/DATE/FRIDGE/EXPERIMENT/notes.md
 
 Saving automatically updates that experiment in FrostBook.
 
-### Add a plot or image
+### Add a plot, image, or PDF
 
 Click:
 
 ```text
-+ Add Plot / Image
++ Add Plot / Image / PDF
 ```
 
 Supported uploads:
@@ -89,6 +89,7 @@ Supported uploads:
 .png
 .jpg
 .jpeg
+.pdf
 ```
 
 The image is saved directly inside the experiment folder and the page is automatically updated.
@@ -101,11 +102,11 @@ plot_2.png
 
 instead of overwriting the original.
 
-### Delete a plot or image
+### Delete a plot, image, or PDF
 
-Each displayed image has a **Delete image** control.
+Each displayed file has a **Delete image** control.
 
-FrostBook asks for confirmation before permanently deleting the source image from the experiment folder.
+FrostBook asks for confirmation before permanently deleting the source file from the experiment folder.
 
 The experiment page is automatically rebuilt afterward.
 

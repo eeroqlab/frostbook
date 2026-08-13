@@ -358,7 +358,7 @@ def unique_upload_path(
             status_code=400,
             detail=(
                 "Unsupported image type. "
-                "Use PNG, JPG, or JPEG."
+                "Use PNG, JPG, JPEG, or PDF."
             ),
         )
 
@@ -401,12 +401,12 @@ def validate_uploaded_image(
     path: Path,
 ) -> None:
     """
-    Verify the uploaded file actually looks like the
-    image type named by its extension.
+    Verify that an uploaded PNG, JPG, JPEG, or PDF
+    matches its filename extension.
     """
 
     with path.open("rb") as f:
-        header = f.read(12)
+        header = f.read(1024)
 
     suffix = path.suffix.lower()
 
@@ -423,6 +423,11 @@ def validate_uploaded_image(
             b"\xff\xd8\xff"
         )
 
+    elif suffix == ".pdf":
+        valid = (
+            b"%PDF-" in header
+        )
+
     else:
         valid = False
 
@@ -431,7 +436,7 @@ def validate_uploaded_image(
             status_code=400,
             detail=(
                 "The uploaded file does not "
-                "match its image extension."
+                "match its file extension."
             ),
         )
 
@@ -631,7 +636,7 @@ async def upload_image(
                     raise HTTPException(
                         status_code=413,
                         detail=(
-                            "Image is too large. "
+                            "File is too large. "
                             "Maximum size is 25 MB."
                         ),
                     )
